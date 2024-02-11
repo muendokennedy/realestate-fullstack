@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,3 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Routes to display all the pages of the of the application
+Route::get('/', [PagesController::class, 'home'])->name('home');
+Route::get('/urban/plots', [PagesController::class, 'urbanPlots'])->name('urban');
+Route::get('/upcountry/plots', [PagesController::class, 'upcountryPlots'])->name('upcountry');
+Route::get('/buildings/apartments', [PagesController::class, 'apartments'])->name('apartments');
+Route::get('/buildings/houses', [PagesController::class, 'houses'])->name('houses');
+Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
