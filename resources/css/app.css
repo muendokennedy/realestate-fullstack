@@ -394,6 +394,80 @@ td{
 .payment .payment-block .pay-column{
   margin-top: 2rem;
 }
+/* Creating a signup page */
+.signup .signup-title{
+    font-size: 1.8rem;
+    padding: 2rem 0;
+    font-weight: 600;
+    width: auto;
+  }
+  .signup .signup-title span{
+    color: var(--primary);
+  }
+  .signup .signup-welcome-text{
+    margin: 2rem 0;
+  }
+  .signup .signup-form-title{
+    font-size: 1.8rem;
+    padding: 2rem 0;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  .signup-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .signup .signup-form{
+    background: var(--contact-form-background-color);
+    padding: 2rem 2%;
+    width: 50rem;
+    margin: 4rem auto;
+  }
+  .signup .signup-form .form-input{
+    width: 100%;
+    position: relative;
+    display: block;
+    margin: 3rem 0;
+  }
+  .signup .signup-form .form-input input,
+  .signup .signup-form .form-input select{
+    padding: 1rem 0;
+    border: none;
+    outline: none;
+    border-bottom: .2rem solid var(--form-input-border-bottom-color);
+    background: none;
+    width: 100%;
+  }
+  .signup .signup-form .form-input label{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+  .signup .signup-form .form-input input:focus ~ label,
+  .signup .signup-form .form-input input:valid ~ label,
+  .signup .signup-form .form-input select:focus ~ label,
+  .signup .signup-form .form-input select:valid ~ label{
+    transform: translateY(-3rem);
+    transition: all .3s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  .signup .signup-form .form-input input:focus{
+    border-bottom-color: var(--primary);
+  }
+  .signup .submit-btn .btn{
+    padding: 1rem 3.5rem;
+  }
+  .signup .account-already{
+    margin: 2rem 0;
+  }
+  .signup .account-already a{
+    padding: 0 4rem;
+  }
 /* The footer styling */
 footer{
   font-size: 1.4rem;
