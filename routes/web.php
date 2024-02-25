@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,6 @@ Route::get('/upcountry/plots', [PagesController::class, 'upcountryPlots'])->name
 Route::get('/buildings/apartments', [PagesController::class, 'apartments'])->name('apartments');
 Route::get('/buildings/houses', [PagesController::class, 'houses'])->name('houses');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
+
+require __DIR__.'/auth.php';
+
