@@ -6,7 +6,8 @@
     <div class="signup-container">
       <div class="signup-form">
         <div class="signup-form-title">login</div>
-        <form action="FORM/contact.php" method="POST">
+        <form action="{{route('customer.store')}}" method="POST">
+        @csrf
             <div class="form-input">
               <input type="text" name="email" id="email" required>
               <label for="email">Enter email:</label>

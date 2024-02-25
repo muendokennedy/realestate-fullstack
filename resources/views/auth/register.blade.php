@@ -6,29 +6,36 @@
     <div class="signup-container">
       <div class="signup-form">
         <div class="signup-form-title">sign up</div>
-        <form action="FORM/contact.php" method="POST">
+        <form action="{{route('customer.store')}}" method="POST" autocomplete="off">
+        @csrf
             <div class="form-input">
-              <input type="text" name="name" id="name" required>
+              <input type="text" name="name" id="name">
               <label for="name">Enter your name:</label>
             </div>
               @error('name')
-              <p class="text-red-600 text-sm sm:text-base py-2 w-full">{{$message}}</p>
+              <p class="text-red-600 text-base sm:text-2xl py-2 w-full">{{$message}}</p>
               @enderror
             <div class="form-input">
-              <input type="text" name="email" id="email" required>
+              <input type="text" name="email" id="email">
               <label for="email">Enter email:</label>
             </div>
             @error('email')
-            <p class="text-red-600 text-sm sm:text-base py-2 w-full">{{$message}}</p>
+            <p class="text-red-600 text-base sm:text-2xl py-2 w-full">{{$message}}</p>
             @enderror
             <div class="form-input">
-              <input type="password" name="password" id="password" required>
+              <input type="password" name="password" id="password">
               <label for="password">Enter your password:</label>
             </div>
+            @error('password')
+            <p class="text-red-600 text-base sm:text-2xl py-2 w-full">{{$message}}</p>
+            @enderror
             <div class="form-input">
-              <input type="password" name="password_confirmation" id="password_confirmation" required>
+              <input type="password" name="password_confirmation" id="password_confirmation">
               <label for="password_confirmation">Confirm your password:</label>
             </div>
+            @error('password_confirmation')
+            <p class="text-red-600 text-base sm:text-2xl py-2 w-full">{{$message}}</p>
+            @enderror
             <div class="submit-btn">
               <button type="submit" class="btn">Send</button>
             </div>
