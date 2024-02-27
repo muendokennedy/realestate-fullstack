@@ -2,11 +2,25 @@
   <!-- This is the home section  -->
   <section class="home">
     <div class="welcome-section">
-      <div class="home-title">Welcome</div>
-      <div class="signup-login">
-        <a href="{{route('customer.signup')}}" class="btn">signup</a>
-        <a href="{{route('customer.login')}}" class="btn">login</a>
+      <div class="home-title">Welcome
+        @auth('web')
+        <span class="text-[#2DE19D]">{{ auth('web')->user()->name }}</span>
+        @endauth
       </div>
+      @guest('web')
+      <div class="signup-login">
+          <a href="{{route('customer.signup')}}" class="btn">signup</a>
+          <a href="{{route('customer.login')}}" class="btn">login</a>
+        </div>
+        @endguest
+        @auth('web')
+        <div class="signup-login">
+            <form action="{{route('logout')}}" method="POST">
+            @csrf
+            <button class="btn">logout</button>
+            </form>
+        </div>
+        @endauth
     </div>
     <div class="home-welcome-text">Welcome to Real estate Kenya, official website. We provide the interface for reliable accessibility of all the real estate dealerships in Kenya. We ensure that the process is smooth and fraud free. We also connect people with a pool of Real Estate properties that would never have existed in  our absence. Our mission is to bring clarity to the whole process and prevent any occurrences of frauds. If you wish to have more clarity feel free to call our customer care who is available during the public or government work ours or visit one of our offices in the following Kenyan cities: Nairobi, Mombasa, Nakuru, Kisumu.</div>
     <div class="home-title">We deal in:</div>

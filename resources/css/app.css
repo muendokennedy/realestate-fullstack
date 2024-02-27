@@ -123,10 +123,12 @@ nav .links:hover{
 .home .welcome-section .signup-login{
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 3rem;
   width: 20%;
 }
-.home .welcome-section .signup-login a{
+.home .welcome-section .signup-login a,
+.home .welcome-section .signup-login button{
   padding: 1rem 2.5rem;
 }
 .home .home-property-box{
