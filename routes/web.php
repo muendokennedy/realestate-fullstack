@@ -25,6 +25,7 @@ Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 
 Route::middleware('auth')->group(function(){
     Route::get('/conditions', [PagesController::class, 'conditions'])->name('conditions');
+    Route::post('/information', [PagesController::class, 'information'])->name('information');
 });
 
 require __DIR__.'/auth.php';

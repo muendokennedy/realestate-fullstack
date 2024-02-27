@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PagesController extends Controller
 {
@@ -33,6 +34,15 @@ class PagesController extends Controller
     }
     public function conditions()
     {
+
         return view('conditions');
+    }
+    public function information(Request $request)
+    {
+        if($request->agree == 1){
+            return view('information');
+        } else {
+            return Redirect::route('conditions')->with('conditions', 'Please agree to terms and conditions before proceeding');
+        }
     }
 }

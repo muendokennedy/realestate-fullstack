@@ -12,19 +12,18 @@
       <div class="condition">It is recommended that you proceed with acquisition of the property once you are satisfied with the valuation of the said property.</div>
     </div>
     <div class="agree-title">Do you agree with the terms and conditions?</div>
-    <form action="auth.php" method="POST">
+    <form action="{{route('information')}}" method="POST">
+    @csrf
       <div class="input-box">
-      <input type="radio" name="agree" id="agree1" value="agreetrue">
-      <label for="agree1">I AGREE</label>
+      <input type="radio" name="agree" id="agree1" value="1">
+      <label for="agree">I AGREE</label>
       </div>
       <div class="input-box">
-      <input type="radio" name="agree" id="agree2" value="agreefalse">
+      <input type="radio" name="agree" id="agree2" value="0">
       <label for="agree2">I DO NOT AGREE</label>
       </div>
+      <button class="btn">continue</button>
     </form>
-      <a href="information.html">
-        <button class="btn">continue</button>
-      </a>
   <hr>
   </section>
 </x-app-layout>
