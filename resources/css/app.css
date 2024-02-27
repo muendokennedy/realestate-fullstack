@@ -229,52 +229,28 @@ td{
 .contact .contact-form .form-row{
   display: flex;
   justify-content: space-between;
-  margin: 4rem 0;
+  margin: 2rem 0;
 }
 .contact .contact-form .form-row .form-input{
   width: 45%;
-  position: relative;
+  display: block;
+  margin: 1rem 0;
 }
 .contact .contact-form .form-row .form-input input,
 .contact .contact-form .form-row .form-input select{
-  padding: 1rem 0;
-  border: none;
+  padding: 1rem .5rem;
   outline: none;
-  border-bottom: .2rem solid var(--form-input-border-bottom-color);
-  background: none;
+  border: .2rem solid var(--form-input-border-bottom-color);
   width: 100%;
+  background: var(--contact-form-background-color);
+}
+.contact .contact-form .form-row .form-input input:focus{
+  border-color: var(--primary);
+  transition: all .3s ease-in-out;
 }
 .contact .contact-form .form-row .form-input label{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-}
-.contact .contact-form .form-row .form-input input:focus ~ label,
-.contact .contact-form .form-row .form-input input:valid ~ label,
-.contact .contact-form .form-row .form-input select:focus ~ label,
-.contact .contact-form .form-row .form-input select:valid ~ label{
-  transform: translateY(-3rem);
-  transition: all .3s ease-in-out;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary);
-}
-.contact .contact-form .form-row .form-input input[type="file"]:focus ~ label,
-.contact .contact-form .form-row .form-input input[type="file"]:valid ~ label{
-  transform: translateY(-4rem);
-}
-.contact .contact-form .form-row .form-input input[type="date"] ~ label{
-  position: absolute;
-  z-index: 10;
-  background: var(--contact-form-background-color);
-  padding: .2rem 0;
-}
-.contact .contact-form .form-row .form-input input[type="file"] ~ label{
-  position: absolute;
-  z-index: 10;
-  background: var(--contact-form-background-color);
-  padding: .3rem 10rem 0 0;
+ display: block;
+ margin: 1rem 0;
 }
 .contact .contact-form .form-row .textarea{
   width: 100%;
@@ -300,7 +276,7 @@ td{
 }
 .contact .contact-form .form-row .form-input input:focus,
 .contact .contact-form .form-row .textarea textarea:focus{
-  border-bottom-color: var(--primary);
+  border-color: var(--primary);
 }
 .contact .submit-btn .btn{
   width: 20rem;
@@ -439,7 +415,7 @@ td{
     outline: none;
     border: .2rem solid var(--form-input-border-bottom-color);
     width: 100%;
-    background: var(--contact-form-background-color)
+    background: var(--contact-form-background-color);
   }
   .signup .signup-form .form-input input:focus,
   .signup .signup-form .form-input select:focus{
