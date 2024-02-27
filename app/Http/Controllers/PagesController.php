@@ -31,4 +31,8 @@ class PagesController extends Controller
     {
         return view('contact');
     }
+    public function conditions()
+    {
+        return view('conditions');
+    }
 }

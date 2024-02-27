@@ -23,5 +23,9 @@ Route::get('/buildings/apartments', [PagesController::class, 'apartments'])->nam
 Route::get('/buildings/houses', [PagesController::class, 'houses'])->name('houses');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 
+Route::middleware('auth')->group(function(){
+    Route::get('/conditions', [PagesController::class, 'conditions'])->name('conditions');
+});
+
 require __DIR__.'/auth.php';
 
