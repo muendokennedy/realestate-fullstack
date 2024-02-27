@@ -427,41 +427,32 @@ td{
   }
   .signup .signup-form .form-input{
     width: 100%;
-    position: relative;
     display: block;
-    margin: 3rem 0;
+    margin: 1rem 0;
   }
   .signup .signup-form .form-input input,
   .signup .signup-form .form-input select{
-    padding: 1rem 0;
+    padding: 1rem .5rem;
     border: none;
     outline: none;
-    border-bottom: .2rem solid var(--form-input-border-bottom-color);
+    border: .2rem solid var(--form-input-border-bottom-color);
     width: 100%;
     background: var(--contact-form-background-color)
   }
   .signup .signup-form .form-input input:focus,
   .signup .signup-form .form-input select:focus{
+    transition: all .3s ease-in-out;
     background: var(--contact-form-background-color)
   }
   .signup .signup-form .form-input label{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-  }
-  .signup .signup-form .form-input input:focus ~ label,
-  .signup .signup-form .form-input input:valid ~ label,
-  .signup .signup-form .form-input select:focus ~ label,
-  .signup .signup-form .form-input select:valid ~ label{
-    transform: translateY(-3rem);
-    transition: all .3s ease-in-out;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--primary);
+    display: block;
+    margin: 1rem 0;
   }
   .signup .signup-form .form-input input:focus{
-    border-bottom-color: var(--primary);
+    border-color: var(--primary);
+  }
+  .signup .submit-btn{
+    margin: 2.5rem 0;
   }
   .signup .submit-btn .btn{
     padding: 1rem 3.5rem;
@@ -469,9 +460,15 @@ td{
   }
   .signup .account-already{
     margin: 2rem 0;
+    font-size: 1.5rem;
   }
   .signup .account-already a{
     padding: 0 4rem;
+    text-transform: capitalize;
+  }
+  .signup .account-already a:hover{
+    text-decoration: underline;
+    transition: all .3s ease-in-out;
   }
 /* The footer styling */
 footer{
