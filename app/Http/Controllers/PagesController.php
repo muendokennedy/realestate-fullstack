@@ -37,12 +37,16 @@ class PagesController extends Controller
 
         return view('conditions');
     }
-    public function information(Request $request)
+    public function handleInfo(Request $request)
     {
         if($request->agree == 1){
-            return view('information');
+            return redirect()->route('information');
         } else {
-            return Redirect::route('conditions')->with('conditions', 'Please agree to terms and conditions before proceeding');
+            return redirect()->route('conditions')->with('conditions', 'Please agree to terms and conditions before proceeding');
         }
+    }
+    public function information()
+    {
+            return view('information');
     }
 }

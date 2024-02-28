@@ -229,12 +229,12 @@ td{
 .contact .contact-form .form-row{
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0;
+  margin: .5rem 0;
 }
 .contact .contact-form .form-row .form-input{
   width: 45%;
   display: block;
-  margin: 1rem 0;
+  margin: .5rem 0;
 }
 .contact .contact-form .form-row .form-input input,
 .contact .contact-form .form-row .form-input select{
@@ -273,10 +273,6 @@ td{
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--primary);
-}
-.contact .contact-form .form-row .form-input input:focus,
-.contact .contact-form .form-row .textarea textarea:focus{
-  border-color: var(--primary);
 }
 .contact .submit-btn .btn{
   width: 20rem;

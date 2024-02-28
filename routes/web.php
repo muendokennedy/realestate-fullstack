@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\InformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,9 @@ Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 
 Route::middleware('auth')->group(function(){
     Route::get('/conditions', [PagesController::class, 'conditions'])->name('conditions');
-    Route::post('/information', [PagesController::class, 'information'])->name('information');
+    Route::post('/handle/information', [PagesController::class, 'handleInfo'])->name('handleinfo');
+    Route::get('/information', [PagesController::class, 'information'])->name('information');
+    Route::post('/store/information', [InformationController::class, 'userInfo'])->name('userinfo');
 });
 
 require __DIR__.'/auth.php';

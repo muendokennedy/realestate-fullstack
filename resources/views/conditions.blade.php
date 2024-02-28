@@ -12,10 +12,10 @@
       <div class="condition">It is recommended that you proceed with acquisition of the property once you are satisfied with the valuation of the said property.</div>
     </div>
     <div class="agree-title">Do you agree with the terms and conditions?</div>
-    <form action="{{route('information')}}" method="POST">
+    <form action="{{route('handleinfo')}}" method="POST">
     @csrf
       <div class="input-box">
-      <input type="radio" name="agree" id="agree1" value="1">
+      <input type="radio" name="agree" id="agree" value="1">
       <label for="agree">I AGREE</label>
       </div>
       <div class="input-box">
