@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InformationController;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,21 @@ Route::middleware('auth')->group(function(){
 });
 
 require __DIR__.'/auth.php';
+require __DIR__. '/adminauth.php';
+
+Route::prefix('admin')->group(function(){
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/analytics', [AdminController::class, 'analytics'])->name('admin.analytics');
+    Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
+    Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
+    Route::get('/stock', [AdminController::class, 'stock'])->name('admin.stock');
+    Route::get('/clientinfo', [AdminController::class, 'clientinfo'])->name('admin.client');
+    Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');
+    // The routes for storing the product into the database
+    Route::post('/addnewproduct', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
+    Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('/product/delete/{product}', [ProductController::class, 'destroy'])->name('product.delete');
+
+});
 

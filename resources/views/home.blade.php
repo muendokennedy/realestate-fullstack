@@ -29,7 +29,7 @@
       <div class="home-property-box-title">Real estate <span>Apartments</span></div>
       <div class="property-box">
         <div class="property-image">
-          <img src="IMAGES/appartment.jpg" alt="">
+          <img src="{{asset('images/appartment.jpg')}}" alt="">
         </div>
         <div class="property-details">
           We have Real estate Apartments. These exist in several forms. We may have someone who is selling an already existing Apartment, an apartment that is fresh from construction and is under sale and many other other situations. All these have different prices and we are not in control of the purchase prices.
@@ -43,7 +43,7 @@
       <div class="home-property-box-title"><span>Urban </span>Land Plots </div>
       <div class="property-box">
         <div class="property-image">
-          <img src="IMAGES/land plot.jpg" alt="">
+          <img src="{{asset('images/land plot.jpg')}}" alt="">
         </div>
         <div class="property-details">We have plots of land which are specifically located in the urban or metrolpolitan regions. These of course are more expensive than the other similar plots of land and are much smaller. However they involve long processes of legal ownership authenticity. Over 90% of them are sold already built up. You can see more about these properties by clicking the button below.
           <a href="{{route('urban')}}" class="btn">see more</a>
@@ -55,7 +55,7 @@
       <div class="home-property-box-title"><span>Upcountry </span>Land Plots </div>
       <div class="property-box">
         <div class="property-image">
-          <img src="IMAGES/land plot2.jpeg" alt="">
+          <img src="{{asset('images/land plot2.jpeg')}}" alt="">
         </div>
         <div class="property-details">We have plots of land which are mainly located in the rural areas and the remote regions of the country. These plots of land are mainly large in size. Some are located in rainy areas and most of them are more expensive, as valued by their owners while others are located in dry areas and most of them tend to be less expensive or even affordable in the end. To see more about these types of properties, click the link below.
           <a href="{{route('upcountry')}}" class="btn">see more</a>
@@ -67,7 +67,7 @@
       <div class="home-property-box-title"><span>Houses </span>on sale</div>
       <div class="property-box">
         <div class="property-image">
-          <img src="IMAGES/house.jpg" alt="">
+          <img src="{{asset('images/house.jpg')}}" alt="">
         </div>
         <div class="property-details">We have houses on sale. These houses come in the following forms: old houses which are well taken care of and  are of high market value, new houses which are fresh from construction or even many houses in an estate. The houses are mainly from the three cities of Kenya which are Nairobi, Mombasa, Nakuru and Kisumu. Neverthesless we still have houses from other smaller towns of Kenya thought they account for much lower percentage of the overall number of house properties. To see more about the house properties avaible, click the link below.
           <a href="{{route('houses')}}" class="btn">see more</a>
