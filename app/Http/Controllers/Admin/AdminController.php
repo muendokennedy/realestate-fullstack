@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Product;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -21,9 +22,9 @@ class AdminController extends Controller
     }
     public function products()
     {
-        $products = Product::latest()->get();
+        $properties = Property::latest()->get();
 
-        return view('admin.products', compact('products'));
+        return view('admin.products', compact('properties'));
     }
     public function orders()
     {
