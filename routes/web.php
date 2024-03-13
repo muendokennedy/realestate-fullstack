@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\InformationController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\InformationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/clientinfo', [AdminController::class, 'clientinfo'])->name('admin.client');
     Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');
     // The routes for storing the product into the database
-    Route::post('/addnewproduct', [ProductController::class, 'store'])->name('product.store');
+    Route::post('/addnewproperty', [PropertyController::class, 'store'])->name('property.store');
     Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
     Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/product/delete/{product}', [ProductController::class, 'destroy'])->name('product.delete');

@@ -11,7 +11,7 @@ class StorePropertyRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,11 +22,10 @@ class StorePropertyRequest extends FormRequest
     public function rules(): array
     {
             return [
-                'ownersName' => 'required | string',
                 'category' => 'required | string',
+                'ownersName' => 'required | string',
                 'location' => 'required | string',
-                'price' => 'required | numeric',
-                'status' => 'required | string'
+                'propertyPrice' => 'required | numeric',
              ];
 
     }

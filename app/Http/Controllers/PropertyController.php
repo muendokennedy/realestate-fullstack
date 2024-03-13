@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\StorePropertyRequest;
+use App\Models\Property;
 
 class PropertyController extends Controller
 {
@@ -11,32 +11,19 @@ class PropertyController extends Controller
      /**
      * Store a newly created product in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(StorePropertyRequest $request)
     {
-        $productData = $request->validated();
+        $propertyData = $request->validated();
 
-        $firstPath = $this->storeProductImage($request->file('firstImage'));
-        $secondPath = $this->storeProductImage($request->file('secondImage'));
-        $thirdPath = $this->storeProductImage($request->file('thirdImage'));
-        $fourthPath = $this->storeProductImage($request->file('fourthImage'));
-
-        $product = Product::create([
-            'category' => $productData['category'],
-            'productName' => $productData['productName'],
-            'initialPrice' => $productData['initialPrice'],
-            'discountPrice' => $productData['discountPrice'],
-            'firstImage' => $firstPath,
-            'secondImage' => $secondPath,
-            'thirdImage' => $thirdPath,
-            'fourthImage' => $fourthPath,
-            'specifications' => $productData['specifications'],
-            'avgRating' => $productData['avgRating'],
-            'productWarranty' => $productData['productWarranty'],
-            'brandName' => $productData['brandName'],
-            'productDescription' => $productData['productDescription']
+        $product = Property::create([
+            'category' => $propertyData['category'],
+            'ownersName' => $propertyData['ownersName'],
+            'location' => $propertyData['location'],
+            'price' => $propertyData['propertyPrice'],
+            'status' => 'Not taken'
         ]);
 
-        return redirect()->route('admin.products')->with('productSuccess', 'The product has been added successfully');
+        return redirect()->route('admin.products')->with('productSuccess', 'The property has been added successfully');
 
     }
     /**

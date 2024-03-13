@@ -10,30 +10,27 @@
             <thead>
                 <tr>
                 <th class="border-2 py-4 px-2">Category</th>
-                <th class="border-2 py-4 px-2">Name</th>
-                <th class="border-2 py-4 px-2">Image</th>
-                <th class="border-2 py-4 px-2">Price</th>
-                <th class="border-2 py-4 px-2">Discounted price</th>
-                <th class="border-2 py-4 px-2">Brand</th>
-                <th class="border-2 py-4">Product Description</th>
+                <th class="border-2 py-4 px-2">Owner's name</th>
+                <th class="border-2 py-4 px-2">Propery price</th>
+                <th class="border-2 py-4 px-2">Status</th>
                 <th class="border-2 py-4">Manage</th>
                 </tr>
             </thead>
             <tbody>
             @endif
-            @forelse ($properties as $propety)
+            @forelse ($properties as $property)
                 <tr>
                   <td class="border-2 py-2 px-2 text-center">{{$property->location}}</td>
                   <td class="border-2 py-2 px-2 text-center">{{$property->ownersName}}</td>
-                  <td class="border-2 py-2 px-2 text-center">${{$property->price}}</td>
-                  <td class="border-2 py-2 px-2 text-center">${{$property->status}}</td>
+                  <td class="border-2 py-2 px-2 text-center">Ksh. {{number_format($property->price)}}</td>
+                  <td class="border-2 py-2 px-2 text-center">{{$property->status}}</td>
                   @php
-                        $modifiedProductDescription = str_replace('|', '', $product->productDescription);
+                        $modifiedProductDescription = str_replace('|', '', $property->productDescription);
                   @endphp
                   <td class="border-2 py-2 px-6 w-[25rem]">
                       <div class="flex w-full justify-between">
-                          <a href="{{route('product.edit', $product)}}" class="bg-[#FFCF10] edit-button py-3 px-8 capitalize rounded-md">edit <i class="fa-solid fa-edit pl-2"></i></a>
-                          <form class='product-delete-form' action="{{route('product.delete', $product)}}" method="POST">
+                          <a href="{{route('product.edit', $property)}}" class="bg-[#FFCF10] edit-button py-3 px-8 capitalize rounded-md">edit <i class="fa-solid fa-edit pl-2"></i></a>
+                          <form class='product-delete-form' action="{{route('product.delete', $property)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="bg-[#FF4004] py-3 px-8 capitalize rounded-md">remove <i class="fa-solid fa-trash pl-2"></i></button>
@@ -110,7 +107,7 @@
         <div class="new-product bg-white p-4 rounded-md my-4"  id="new-product">
           <h2 class="text-[rgb(4,46,255)] font-semibold text-base md:text-xl py-4 capitalize">add new product</h2>
           <div class="new-product-form">
-            <form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('property.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
               <div class="form-row w-full flex flex-col md:flex-row justify-between">
                 <div class="input-box md:basis-[48%]">
@@ -128,25 +125,25 @@
                   @enderror
                 </div>
                 <div class="input-box md:basis-[48%]">
-                  <label for="productName" class="block py-3">Enter the Owner's name:</label>
-                  <input type="text" name="productName" id="productName" value="{{old('productName')}}" class="@error('productName') border-red-500 @enderror px-2 py-2 rounded-md outline-none border-2 w-full focus:border-[#042EFF] transition-all duration-300 ease-in-out">
-                  @error('productName')
+                  <label for="ownersName" class="block py-3">Enter the Owner's name:</label>
+                  <input type="text" name="ownersName" id="ownersName" value="{{old('ownersName')}}" class="@error('ownersName') border-red-500 @enderror px-2 py-2 rounded-md outline-none border-2 w-full focus:border-[#042EFF] transition-all duration-300 ease-in-out">
+                  @error('ownersName')
                     <p class="text-red-500 text-sm sm:text-base py-2 w-full">{{$message}}</p>
                   @enderror
                 </div>
               </div>
               <div class="form-row w-full flex flex-col md:flex-row justify-between">
                 <div class="input-box md:basis-[48%]">
-                    <label for="initialPrice" class="block py-3">Enter the location of property:</label>
-                    <input type="number" name="initialPrice" id="initialPrice" value="{{old('initialPrice')}}" class="@error('initialPrice') border-red-600 @enderror px-2 py-2 rounded-md outline-none border-2 w-full focus:border-[#042EFF] transition-all duration-300 ease-in-out">
-                    @error('initialPrice')
+                    <label for="location" class="block py-3">Enter the location of property:</label>
+                    <input type="text" name="location" id="location" value="{{old('location')}}" class="@error('location') border-red-600 @enderror px-2 py-2 rounded-md outline-none border-2 w-full focus:border-[#042EFF] transition-all duration-300 ease-in-out">
+                    @error('location')
                     <p class="text-red-500 text-sm sm:text-base py-2 w-full">{{$message}}</p>
                     @enderror
                 </div>
                 <div class="input-box md:basis-[48%]">
-                  <label for="discountPrice" class="block py-3">Enter the price of the property:</label>
-                  <input type="number" name="discountPrice" id="discountPrice" value="{{old('discountPrice')}}" class="@error('discountPrice') border-red-600 @enderror px-2 py-2 rounded-md outline-none border-2 w-full focus:border-[#042EFF] transition-all duration-300 ease-in-out">
-                  @error('discountPrice')
+                  <label for="propertyPrice" class="block py-3">Enter the price of the property:</label>
+                  <input type="number" name="propertyPrice" id="propertyPrice" value="{{old('propertyPrice')}}" class="@error('propertyPrice') border-red-600 @enderror px-2 py-2 rounded-md outline-none border-2 w-full focus:border-[#042EFF] transition-all duration-300 ease-in-out">
+                  @error('propertyPrice')
                   <p class="text-red-500 text-sm sm:text-base py-2 w-full">{{$message}}</p>
                   @enderror
                 </div>

@@ -22,9 +22,9 @@
         <ul class="my-8 text-white px-4 space-y-2 capitalize">
           <li><a href="{{route('admin.dashboard')}}"><i class="fa-solid fa-house px-4 py-2 text-xl"></i><span>dashboard</span></a></li>
           <li><a href="{{route('admin.analytics')}}"><i class="fa-solid fa-chart-simple px-4 py-2 text-xl"></i><span>analytics</span></a></li>
-          <li><a href="{{route('admin.products')}}"><i class="fa-solid fa-box px-4 py-2 text-xl"></i><span>products</span></a></li>
+          <li><a href="{{route('admin.products')}}"><i class="fa-solid fa-box px-4 py-2 text-xl"></i><span>New Property</span></a></li>
           <li><a href="{{route('admin.orders')}}"><i class="fa-solid fa-list px-4 py-2 text-xl"></i><span>orders</span></a></li>
-          <li><a href="{{route('admin.stock')}}"><i class="fa-solid fa-database px-4 py-2 text-xl"></i><span>stock</span></a></li>
+          <li><a href="{{route('admin.stock')}}"><i class="fa-solid fa-database px-4 py-2 text-xl"></i><span>Propeties</span></a></li>
           <li><a href="{{route('admin.client')}}"><i class="fa-solid fa-user px-4 py-2 text-xl"></i><span>client info</span></a></li>
           <li><a href="{{route('admin.settings')}}"><i class="fa-solid fa-gear px-4 py-2 text-xl"></i><span>settings</span></a></li>
         </ul>
