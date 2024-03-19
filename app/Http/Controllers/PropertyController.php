@@ -15,7 +15,10 @@ class PropertyController extends Controller
     {
         $propertyData = $request->validated();
 
+        $propertyId = rand(100000, 999999);
+
         $product = Property::create([
+            'propertyId' => $propertyId,
             'category' => $propertyData['category'],
             'ownersName' => $propertyData['ownersName'],
             'location' => $propertyData['location'],

@@ -18,7 +18,7 @@
       <input type="checkbox" id="menu-bar" class="hidden">
       <div class="z-50 side-bar fixed left-0 min-h-screen w-[15rem] bg-[#042EFF] py-4 flex flex-col justify-between">
       <div class="sidebar-primary-box">
-        <h2 class="side-bar-title text-white font-bold text-2xl text-center capitalize my-4">moTech</h2>
+        <h2 class="side-bar-title text-white font-bold text-2xl text-center capitalize my-4">KePortal</h2>
         <ul class="my-8 text-white px-4 space-y-2 capitalize">
           <li><a href="{{route('admin.dashboard')}}"><i class="fa-solid fa-house px-4 py-2 text-xl"></i><span>dashboard</span></a></li>
           <li><a href="{{route('admin.analytics')}}"><i class="fa-solid fa-chart-simple px-4 py-2 text-xl"></i><span>analytics</span></a></li>

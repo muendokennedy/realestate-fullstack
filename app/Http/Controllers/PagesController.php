@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -14,22 +15,31 @@ class PagesController extends Controller
     }
     public function urbanPlots()
     {
-        return view('urban');
+        $properties = Property::where('category', 'Urban plot')->get();
+
+        return view('urban', compact('properties'));
     }
     public function upcountryPlots()
     {
-        return view('upcountry');
+        $properties = Property::where('category', 'Upcountry plot')->get();
+
+        return view('upcountry', compact('properties'));
     }
     public function apartments()
     {
-        return view('apartments');
+        $properties = Property::where('category', 'Apartments')->get();
+
+        return view('apartments', compact('properties'));
     }
     public function houses()
     {
-        return view('houses');
+        $properties = Property::where('category', 'House')->get();
+
+        return view('houses', compact('properties'));
     }
     public function contact()
     {
+
         return view('contact');
     }
     public function conditions()
