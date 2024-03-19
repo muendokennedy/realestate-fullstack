@@ -22,9 +22,8 @@ class AdminController extends Controller
     }
     public function products()
     {
-        $properties = Property::latest()->get();
 
-        return view('admin.products', compact('properties'));
+        return view('admin.products');
     }
     public function orders()
     {
@@ -32,7 +31,9 @@ class AdminController extends Controller
     }
     public function stock()
     {
-        return view('admin.stock');
+        $properties = Property::latest()->get();
+
+        return view('admin.stock', compact('properties'));
     }
     public function clientinfo()
     {
