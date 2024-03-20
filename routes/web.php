@@ -46,9 +46,9 @@ Route::prefix('admin')->group(function(){
     Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');
     // The routes for storing the product into the database
     Route::post('/addnewproperty', [PropertyController::class, 'store'])->name('property.store');
-    Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
-    Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update');
-    Route::delete('/product/delete/{product}', [ProductController::class, 'destroy'])->name('product.delete');
+    Route::get('/edit/property/{property}', [PropertyController::class, 'edit'])->name('property.edit');
+    Route::put('/propety/edit/{property}', [PropertyController::class, 'update'])->name('property.update');
+    Route::delete('/product/delete/{product}', [PropertyController::class, 'destroy'])->name('product.delete');
 
 });
 

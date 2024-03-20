@@ -31,7 +31,7 @@
                   @endphp
                   <td class="border-2 py-2 px-6 w-[25rem]">
                       <div class="flex w-full justify-between">
-                          <a href="{{route('product.edit', $property)}}" class="bg-[#FFCF10] edit-button py-3 px-8 capitalize rounded-md">edit <i class="fa-solid fa-edit pl-2"></i></a>
+                          <a href="{{route('property.edit', $property)}}" class="bg-[#FFCF10] edit-button py-3 px-8 capitalize rounded-md">edit <i class="fa-solid fa-edit pl-2"></i></a>
                           <form class='product-delete-form' action="{{route('product.delete', $property)}}" method="POST">
                     @csrf
                     @method('DELETE')

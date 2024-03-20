@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePropertyRequest;
+use App\Http\Requests\UpdatePropertyRequest;
 use App\Models\Property;
 
 class PropertyController extends Controller
@@ -32,84 +33,33 @@ class PropertyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(Property $property)
     {
         //
-        return view('admin.productedit', compact('product'));
+        return view('admin.productedit', compact('property'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(UpdatePropertyRequest $request, Property $property)
     {
         //
-        $product->update($request->except(['firstImage','secondImage','thirdImage','fourthImage']));
+        $property->update($request->validated());
 
-        $firstPath = $this->storeUpdatedProductImage($request->file('firstImage'), $product->firstImage);
-        $secondPath = $this->storeUpdatedProductImage($request->file('secondImage'), $product->secondImage);
-        $thirdPath = $this->storeUpdatedProductImage($request->file('thirdImage'), $product->thirdImage);
-        $fourthPath = $this->storeUpdatedProductImage($request->file('fourthImage'), $product->fourthImage);
-
-        $product->update(
-            [
-            'firstImage' => $firstPath,
-            'secondImage' => $secondPath,
-            'thirdImage' => $thirdPath,
-            'fourthImage' => $fourthPath,
-            ]
-        );
-
-        return redirect()->route('admin.products')->with('productUpdateSuccess', 'The product data has been updated successfully');
+        return redirect()->route('admin.stock')->with('productUpdateSuccess', 'The property data has been updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(Property $product)
     {
         //
-        Storage::disk('public')->delete($product->firstImage);
-        Storage::disk('public')->delete($product->secondImage);
-        Storage::disk('public')->delete($product->thirdImage);
-        Storage::disk('public')->delete($product->fourthImage);
 
         $product->delete();
 
-        return redirect()->route('admin.products')->with('productDeleteSuccess', 'The product has been deleted successfully');
-    }
-
-    private function storeProductImage($productFile)
-    {
-        $imageExtension = $productFile->extension();
-
-        $content = file_get_contents($productFile);
-
-        $imageName = Str::random(25);
-
-        $path = "products/$imageName.$imageExtension";
-
-        Storage::disk('public')->put($path, $content);
-
-        return $path;
-    }
-
-    private function storeUpdatedProductImage($productFile, $oldFile)
-    {
-
-        Storage::disk('public')->delete($oldFile);
-
-        $imageExtension = $productFile->extension();
-
-        $content = file_get_contents($productFile);
-
-        $imageName = Str::random(25);
-
-        $path = "products/$imageName.$imageExtension";
-
-        Storage::disk('public')->put($path, $content);
-
-        return $path;
+        return redirect()->route('admin.stock')->with('productDeleteSuccess', 'The property has been has been deleted successfully');
     }
 
 }
