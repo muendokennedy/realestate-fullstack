@@ -17,38 +17,40 @@ use App\Http\Controllers\InformationController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::middleware('prevent.back.history')->group(function(){
 
-// Routes to display all the pages of the of the application
-Route::get('/', [PagesController::class, 'home'])->name('home');
-Route::get('/urban/plots', [PagesController::class, 'urbanPlots'])->name('urban');
-Route::get('/upcountry/plots', [PagesController::class, 'upcountryPlots'])->name('upcountry');
-Route::get('/buildings/apartments', [PagesController::class, 'apartments'])->name('apartments');
-Route::get('/buildings/houses', [PagesController::class, 'houses'])->name('houses');
-Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
+    // Routes to display all the pages of the of the application
+    Route::get('/', [PagesController::class, 'home'])->name('home');
+    Route::get('/urban/plots', [PagesController::class, 'urbanPlots'])->name('urban');
+    Route::get('/upcountry/plots', [PagesController::class, 'upcountryPlots'])->name('upcountry');
+    Route::get('/buildings/apartments', [PagesController::class, 'apartments'])->name('apartments');
+    Route::get('/buildings/houses', [PagesController::class, 'houses'])->name('houses');
+    Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 
-Route::middleware('auth')->group(function(){
-    Route::get('/conditions', [PagesController::class, 'conditions'])->name('conditions');
-    Route::post('/handle/information', [PagesController::class, 'handleInfo'])->name('handleinfo');
-    Route::get('/information', [PagesController::class, 'information'])->name('information');
-    Route::post('/store/information', [InformationController::class, 'userInfo'])->name('userinfo');
-});
+    Route::middleware('auth')->group(function(){
+        Route::get('/conditions', [PagesController::class, 'conditions'])->name('conditions');
+        Route::post('/handle/information', [PagesController::class, 'handleInfo'])->name('handleinfo');
+        Route::get('/information', [PagesController::class, 'information'])->name('information');
+        Route::post('/store/information', [InformationController::class, 'userInfo'])->name('userinfo');
+    });
 
-require __DIR__.'/auth.php';
-require __DIR__. '/adminauth.php';
+    require __DIR__.'/auth.php';
+    require __DIR__. '/adminauth.php';
 
-Route::prefix('admin')->group(function(){
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/analytics', [AdminController::class, 'analytics'])->name('admin.analytics');
-    Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
-    Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
-    Route::get('/stock', [AdminController::class, 'stock'])->name('admin.stock');
-    Route::get('/clientinfo', [AdminController::class, 'clientinfo'])->name('admin.client');
-    Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');
-    // The routes for storing the product into the database
-    Route::post('/addnewproperty', [PropertyController::class, 'store'])->name('property.store');
-    Route::get('/edit/property/{property}', [PropertyController::class, 'edit'])->name('property.edit');
-    Route::put('/propety/edit/{property}', [PropertyController::class, 'update'])->name('property.update');
-    Route::delete('/product/delete/{product}', [PropertyController::class, 'destroy'])->name('product.delete');
+    Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function(){
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+        Route::get('/analytics', [AdminController::class, 'analytics'])->name('admin.analytics');
+        Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
+        Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
+        Route::get('/stock', [AdminController::class, 'stock'])->name('admin.stock');
+        Route::get('/clientinfo', [AdminController::class, 'clientinfo'])->name('admin.client');
+        Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');
+        // The routes for storing the product into the database
+        Route::post('/addnewproperty', [PropertyController::class, 'store'])->name('property.store');
+        Route::get('/edit/property/{property}', [PropertyController::class, 'edit'])->name('property.edit');
+        Route::put('/propety/edit/{property}', [PropertyController::class, 'update'])->name('property.update');
+        Route::delete('/product/delete/{product}', [PropertyController::class, 'destroy'])->name('product.delete');
+    });
 
 });
 

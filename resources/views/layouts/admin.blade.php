@@ -51,9 +51,13 @@
         </div>
         <div class="profile-section sm:ml-auto lg:ml-0 border-2 flex items-center rounded-md w-36 sm:w-64 justify-between">
           <div class="profile-pic h-[48px] w-[70px] p-1">
+            @auth('admin')
             <img src="{{ asset('/storage/'. auth('admin')->user()->avatar)}}" alt="profile image" class="w-full h-full object-cover rounded-l-md">
+            @endauth
           </div>
+          @auth('admin')
           <span class="sm:pr-2 text-xs sm:text-base">{{auth('admin')->user()->name}}</span>
+          @endauth
         </div>
       </header>
       <main class="bg-[#E4E7F3] pt-20 px-[3%] pb-4">

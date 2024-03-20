@@ -65,6 +65,7 @@
           <a href="#">Mombasa</a>
           <a href="#">Nakuru</a>
           <a href="#">Kisumu</a>
+          <a href="{{route('admin.login')}}">Login as an admin</a>
         </div>
         <div class="link-box">
           <p class="footer-box-title">Our mission</p>

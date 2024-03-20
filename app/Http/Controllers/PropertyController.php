@@ -27,7 +27,7 @@ class PropertyController extends Controller
             'status' => 'Not taken'
         ]);
 
-        return redirect()->route('admin.products')->with('productSuccess', 'The property has been added successfully');
+        return redirect()->route('admin.stock')->with('productSuccess', 'The property has been added successfully');
 
     }
     /**
