@@ -12,11 +12,11 @@
                 <div class="input-box md:basis-[48%]">
                   <label for="category" class="block py-3">Select Category:</label>
                   <select name="category" id="category" class="@error('category') border-red-500 @enderror border-2 outline-none rounded-md px-4 py-2 w-full focus:border-[#042EFF] transition-all duration-300 ease-in-out">
-                    @if (!old('category'))
+                    @if (!old('category') || $property->category)
                     <option value="None" selected disabled hidden>Select a category</option>
                     @endif
                     @foreach ($productCategory as $category)
-                        <option value="{{ $category }}" @selected(old('category') == $category)>{{ $category }}</option>
+                        <option value="{{ $category }}" @selected(old('category') ?? $property->category == $category)>{{ $category }}</option>
                     @endforeach
                   </select>
                   @error('category')
