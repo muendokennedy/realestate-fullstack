@@ -1,10 +1,11 @@
 <x-app-layout>
           <!-- The contact section or page -->
           <section class="information contact">
-        <div class="success-text" id="success-text">
-        Congratulations!!! Your holding request has been received. You can proceed to the payment page by clicking the link below
-        <a href="payment.html" class="btn">Make a payment</a>
-        </div>
+              @if(session('successMessage'))
+                  <div class="success-text" id="success-text">
+                      {{ session('successMessage') }}
+                  </div>
+              @endif
         <form action="{{route('userinfo')}}" method="POST">
         @csrf
         <div class="contact-form-title"><span>Personal </span> Details</div>

@@ -27,11 +27,14 @@ Route::middleware('prevent.back.history')->group(function(){
     Route::get('/buildings/houses', [PagesController::class, 'houses'])->name('houses');
     Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 
+    Route::get('/make/payment', [PagesController::class, 'payment'])->name('payments');
+
     Route::middleware('auth')->group(function(){
         Route::get('/conditions', [PagesController::class, 'conditions'])->name('conditions');
         Route::post('/handle/information', [PagesController::class, 'handleInfo'])->name('handleinfo');
         Route::get('/information', [PagesController::class, 'information'])->name('information');
         Route::post('/store/information', [InformationController::class, 'userInfo'])->name('userinfo');
+
     });
 
     require __DIR__.'/auth.php';

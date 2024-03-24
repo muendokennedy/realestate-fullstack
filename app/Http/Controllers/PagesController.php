@@ -59,4 +59,8 @@ class PagesController extends Controller
     {
             return view('information');
     }
+    public function payment()
+    {
+        return view('payment');
+    }
 }

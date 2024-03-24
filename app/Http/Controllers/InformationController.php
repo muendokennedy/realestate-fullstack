@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CustomerInformationSubmitted;
 use App\Http\Requests\UserInformationRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -35,6 +36,8 @@ class InformationController extends Controller
 
         $user->update();
 
-        return redirect()->route('information')->with('message', 'information was received successfully, please wait for a review');
+        event(new CustomerInformationSubmitted($user));
+
+        return redirect()->route('information')->with('successMessage','Congratulations!!! Your holding request has been received, please wait for a review');
     }
 }
