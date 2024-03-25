@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string('propertyId');
+            $table->unsignedBigInteger('propertyId');
+            $table->index('propertyId');
             $table->string('ownersName');
             $table->string('category');
             $table->string('location');

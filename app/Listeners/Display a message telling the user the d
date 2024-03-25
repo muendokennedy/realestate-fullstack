@@ -1,0 +1,6 @@
+Display a message telling the user the details they submitted are under review.
+Mark the status as under review.
+Send the user an email that will rediect them to a payment page for the basic services of fees.
+Have the users pay through the mpesa api push stk and mark the status of the property as taken.
+
+

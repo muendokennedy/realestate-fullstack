@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Events\CustomerInformationSubmitted;
 use App\Http\Requests\UserInformationRequest;
+use App\Models\Order;
+use App\Models\Property;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -19,6 +21,7 @@ class InformationController extends Controller
         $user->name = $information['name'];
         $user->email = auth('web')->user()->email ?? $information['email'];
         $user->birthdate = $information['birthdate'];
+        $user->mobilenumber = $information['mobilenumber'];
         $user->gender = $information['gender'];
         $user->occupation = $information['occupation'];
         $user->identitydocument = $information['identitydocument'];
@@ -35,6 +38,17 @@ class InformationController extends Controller
         $user->propertyID = $information['propertyID'];
 
         $user->update();
+
+        $property = Property::where('propertyId', $user->propertyID)->first();
+
+        $property->update([
+            'status' => 'Pending Approval'
+        ]);
+
+        $order = new Order();
+        $order->user_id = $user->id;
+        $order->property_id = $property->propertyId;
+        $order->save();
 
         event(new CustomerInformationSubmitted($user));
 

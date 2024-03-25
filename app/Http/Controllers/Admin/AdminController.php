@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Property;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -27,7 +29,9 @@ class AdminController extends Controller
     }
     public function orders()
     {
-        return view('admin.orders');
+        $customerOrders = Order::all();
+
+        return view('admin.orders', compact('customerOrders'));
     }
     public function stock()
     {

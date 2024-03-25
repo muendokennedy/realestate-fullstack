@@ -53,6 +53,8 @@ Route::middleware('prevent.back.history')->group(function(){
         Route::get('/edit/property/{property}', [PropertyController::class, 'edit'])->name('property.edit');
         Route::put('/propety/edit/{property}', [PropertyController::class, 'update'])->name('property.update');
         Route::delete('/product/delete/{product}', [PropertyController::class, 'destroy'])->name('product.delete');
+        Route::post('/approve/property/{property}', [PropertyController::class, 'approveProperty'])->name('property.approve');
+        Route::post('/disapprove/property/{property}', [PropertyController::class, 'disapproveProperty'])->name('property.disapprove');
     });
 
 });
