@@ -13,7 +13,8 @@ class Order extends Model
 
     protected $fillable = [
         'user_id',
-        'property_id'
+        'property_id',
+        'status',
     ];
 
     public function property(): BelongsTo

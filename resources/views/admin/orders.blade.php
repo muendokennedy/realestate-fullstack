@@ -19,20 +19,20 @@
             @endif
             @forelse ($customerOrders as $customerOrder)
             <tr>
-              <td class="border-2 py-2 px-2 text-center">{{ $customerOrder->user->name }}</td>
-              <td class="border-2 py-2 px-2 text-center">{{ $customerOrder->user->address }}/td>
+              <td class="border-2 py-2 px-2 text-nowrap text-center">{{ $customerOrder->user->name }}</td>
+              <td class="border-2 py-2 px-6 text-nowrap text-center">{{ $customerOrder->user->address }}</td>
               <td class="border-2 py-2 px-2 text-center"><button type="button" class="text-white bg-[#042EFF] px-4 rounded-md py-1">view</button></td>
               <td class="border-2 py-2 px-2 text-center">{{$customerOrder->user->email}}</td>
               <td class="border-2 py-2 px-2 text-center">{{ $customerOrder->user->mobilenumber }}</td>
-              <td class="border-2 py-2 px-2 text-center">{{ $customerOrder->property->status }}</td>
-              <td class="border-2 py-2 px-6 w-[25rem]">
-                    <form class='product-delete-form' action="{{route('property.approve', $customerOrder->user)}}" method="POST">
+              <td class="border-2 py-2 px-2 text-nowrap text-center">{{ $customerOrder->status }}</td>
+              <td class="border-2 py-2 px-6 w-[25rem] flex gap-6">
+                    <form class='product-delete-form' action="{{route('property.approve', $customerOrder)}}" method="POST">
                     @csrf
-                    <button type="submit" class="bg-[#FFCF10] py-3 px-8 capitalize rounded-md"> approve <i class="fa-solid fa-trash pl-2"></i></button>
+                    <button type="submit" class="bg-[#FFCF10] py-3 px-8 capitalize rounded-md"> approve <i class="fa-solid fa-check font-extrabold text-green-600 pl-2"></i></button>
                     </form>
-                    <form class='product-delete-form' action="{{route('property.disapprove', $customerOrder->user)}}" method="POST">
+                    <form class='product-delete-form' action="{{route('property.disapprove', $customerOrder)}}" method="POST">
                     @csrf
-                    <button type="submit" class="bg-[#FF4004] py-3 px-8 capitalize rounded-md"> reject <i class="fa-solid fa-trash pl-2"></i></button>
+                    <button type="submit" class="bg-[#FF4004] py-3 px-8 capitalize rounded-md"> reject <i class="fa-solid fa-times font-extrabold pl-2"></i></button>
                     </form>
                 </div>
                 </td>

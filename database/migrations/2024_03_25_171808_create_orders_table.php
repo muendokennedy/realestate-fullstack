@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('property_id');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('property_id')->references('propertyId')->on('properties')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('status');
             $table->timestamps();
         });
     }

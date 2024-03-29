@@ -48,6 +48,7 @@ class InformationController extends Controller
         $order = new Order();
         $order->user_id = $user->id;
         $order->property_id = $property->propertyId;
+        $order->status = 'Pending Approval';
         $order->save();
 
         event(new CustomerInformationSubmitted($user));

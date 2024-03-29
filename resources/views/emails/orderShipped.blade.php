@@ -1,10 +1,10 @@
 <x-mail::message>
-# Your application for the property acquisition was received and processed successfully
+# Your application for the property acquisition was received.
 
-You can make the basic payment for you acquisition request by clicking the link below
+## We will process your application and once the process is complete, we will notify you via your email.
 
 <x-mail::button :url="$url">
-    Make basic holding payment
+    Go to home page
 </x-mail::button>
 
 Thanks. <br>

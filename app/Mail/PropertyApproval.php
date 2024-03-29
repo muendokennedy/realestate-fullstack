@@ -3,15 +3,15 @@
 namespace App\Mail;
 
 use App\Models\User;
-use Illuminate\Mail\Mailables\Address;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class PropertyApprovalStatus extends Mailable
+class PropertyApproval extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,11 +32,12 @@ class PropertyApprovalStatus extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
+
             from: new Address($this->user->email, 'Kenya real estate'),
             replyTo: [
                 new Address($this->user->email)
             ],
-            subject: 'Property Approval Status',
+            subject: 'Property Approval',
             tags: ['Approval']
         );
     }
@@ -47,20 +48,10 @@ class PropertyApprovalStatus extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.orderShipped',
+            markdown: 'emails.propertyApproved',
             with: [
-                'url' => 'http://localhost:8000'
+                'url' => 'http://localhost:8000/make/payment'
             ]
         );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
     }
 }

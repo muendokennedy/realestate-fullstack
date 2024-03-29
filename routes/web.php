@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\InformationController;
+use App\Http\Controllers\Admin\ProperyApprovalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,9 +53,9 @@ Route::middleware('prevent.back.history')->group(function(){
         Route::post('/addnewproperty', [PropertyController::class, 'store'])->name('property.store');
         Route::get('/edit/property/{property}', [PropertyController::class, 'edit'])->name('property.edit');
         Route::put('/propety/edit/{property}', [PropertyController::class, 'update'])->name('property.update');
-        Route::delete('/product/delete/{product}', [PropertyController::class, 'destroy'])->name('product.delete');
-        Route::post('/approve/property/{property}', [PropertyController::class, 'approveProperty'])->name('property.approve');
-        Route::post('/disapprove/property/{property}', [PropertyController::class, 'disapproveProperty'])->name('property.disapprove');
+        Route::delete('/product/delete/{property}', [PropertyController::class, 'destroy'])->name('product.delete');
+        Route::post('/approve/property/{order}', [ProperyApprovalController::class, 'approveProperty'])->name('property.approve');
+        Route::post('/disapprove/property/{order}', [ProperyApprovalController::class, 'disapproveProperty'])->name('property.disapprove');
     });
 
 });

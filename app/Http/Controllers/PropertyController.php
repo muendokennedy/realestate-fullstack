@@ -53,11 +53,11 @@ class PropertyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Property $product)
+    public function destroy(Property $property)
     {
         //
 
-        $product->delete();
+        $property->delete();
 
         return redirect()->route('admin.stock')->with('productDeleteSuccess', 'The property has been has been deleted successfully');
     }

@@ -3,7 +3,11 @@
 namespace App\Providers;
 
 use App\Events\CustomerInformationSubmitted;
+use App\Events\PropertyApproved;
+use App\Events\PropertyRejected;
 use App\Listeners\SendApprovalEmail;
+use App\Listeners\SendPropertyApprovalEmail;
+use App\Listeners\SendPropertyRejectionEmail;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -21,7 +25,13 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         CustomerInformationSubmitted::class => [
-            SendApprovalEmail::class
+            SendApprovalEmail::class,
+        ],
+        PropertyApproved::class => [
+            SendPropertyApprovalEmail::class,
+        ],
+        PropertyRejected::class => [
+            SendPropertyRejectionEmail::class,
         ]
     ];
 
