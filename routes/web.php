@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\InformationController;
+use App\Http\Controllers\payments\MpesaController;
 use App\Http\Controllers\Admin\ProperyApprovalController;
 
 /*
@@ -28,15 +29,15 @@ Route::middleware('prevent.back.history')->group(function(){
     Route::get('/buildings/houses', [PagesController::class, 'houses'])->name('houses');
     Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 
-    Route::get('/make/payment', [PagesController::class, 'payment'])->name('payments');
 
     Route::middleware('auth')->group(function(){
+        Route::get('/make/payment', [PagesController::class, 'payment'])->name('payments');
         Route::get('/conditions', [PagesController::class, 'conditions'])->name('conditions');
         Route::post('/handle/information', [PagesController::class, 'handleInfo'])->name('handleinfo');
         Route::get('/information', [PagesController::class, 'information'])->name('information');
         Route::post('/store/information', [InformationController::class, 'userInfo'])->name('userinfo');
-
     });
+    Route::post('/simulate-stk', [MpesaController::class,'stkPush'])->name('stkpay');
 
     require __DIR__.'/auth.php';
     require __DIR__. '/adminauth.php';

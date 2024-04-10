@@ -12,7 +12,8 @@
                 <div class="condition">Enter Ksh.10,000 and proceed to pay</div>
                 <h2 class="conditions-box-title">OR</h2>
                 <div class="conditions-box-title">CLICK THE BUTTON BELOW TO PAY VIA MPESA STK</div>
-                <form action="#">
+                <form action="{{route('stkpay')}}" method="POST">
+                @csrf
                     <button class="btn">Initiate Payment</button>
                 </form>
             </div>
