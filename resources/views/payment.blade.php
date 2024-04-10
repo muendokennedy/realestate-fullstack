@@ -8,7 +8,13 @@
                 <div class="condition">Go to mpesa/airtel money menu in your phone</div>
                 <div class="condition">Select LIPA NA MPESA</div>
                 <div class="condition">Select BUY GOODS AND SERVICES</div>
-                <div class="condition">Enter the TILL NUMBER 678567 and click Okay</div>
+                <div class="condition">Enter the TILL NUMBER 678567</div>
+                <div class="condition">Enter Ksh.10,000 and proceed to pay</div>
+                <h2 class="conditions-box-title">OR</h2>
+                <div class="conditions-box-title">CLICK THE BUTTON BELOW TO PAY VIA MPESA STK</div>
+                <form action="#">
+                    <button class="btn">Initiate Payment</button>
+                </form>
             </div>
             <div class="pay-column conditions-box">
                 <div class="conditions-box-title">STEPS TO PAY VIA BANK ACCOUNT</div>

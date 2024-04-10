@@ -10,7 +10,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- The font-awesome CDN  link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 </head>
 <body>
   <!-- This is the navigation bar -->
@@ -73,7 +73,7 @@
           <hr>
           <div class="social-media-icons">
             <i class="fa-brands fa-square-facebook"></i>
-            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-x-twitter"></i>
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-pinterest"></i>
             <i class="fa-brands fa-linkedin"></i>

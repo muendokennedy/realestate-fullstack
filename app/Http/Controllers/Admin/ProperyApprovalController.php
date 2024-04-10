@@ -18,7 +18,7 @@ class ProperyApprovalController extends Controller
 
         $property = Property::where('propertyId', $order->property_id)->first();
 
-        $user = User::where('id',  auth('web')->user()->id)->first();
+        $user = User::where('id',  $order->user_id)->first();
 
         $property->update([
             'status' => 'Holdng Approved'
@@ -38,7 +38,7 @@ class ProperyApprovalController extends Controller
 
         $property = Property::where('propertyId', $order->property_id)->first();
 
-        $user = User::where('id',  auth('web')->user()->id)->first();
+        $user = User::where('id',  $order->user_id)->first();
 
         $property->update([
             'status' => 'Not taken',
